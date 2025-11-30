@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Founders Camp — Ideathon & Bootcamp</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Police moderne -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Arrière-plan animé -->
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo">THE FOUNDERS CAMP<span class="dot">.</span></div>
+      <nav>
+        <a href="#programme">Programme</a>
+        <a href="#register" class="btn-nav">S'inscrire</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="tag">16-18 DÉCEMBRE 2025 • USTHB</span>
+        <h1 class="animate-up">Build the <br><span class="text-gradient">Future.</span></h1>
+        <p class="animate-up delay-1">3 Jours. 12 Coachs. Une opportunité unique de transformer ton idée en startup.</p>
+        
+        <div class="countdown animate-up delay-2">
+          <div class="time-box"><span id="d">00</span>j</div>
+          <div class="time-box"><span id="h">00</span>h</div>
+          <div class="time-box"><span id="m">00</span>m</div>
+          <div class="time-box"><span id="s">00</span>s</div>
+        </div>
+
+        <a href="#register" class="btn-primary animate-up delay-3">Réserver ma place</a>
+      </div>
+    </section>
+
+    <!-- Stats / Info -->
+    <section class="stats container">
+      <div class="stat-card">
+        <h3>30+</h3>
+        <p>Participants</p>
+      </div>
+      <div class="stat-card">
+        <h3>12</h3>
+        <p>Coachs Experts</p>
+      </div>
+      <div class="stat-card">
+        <h3>72h</h3>
+        <p>Non-stop</p>
+      </div>
+    </section>
+
+    <!-- Programme -->
+    <section id="programme" class="programme container">
+      <h2>Le Programme</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="date">16 DÉC</div>
+          <div class="content">
+            <h4>Jour 1 : Idéation</h4>
+            <p>Brainstorming, Team Building & Design Thinking.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">17 DÉC</div>
+          <div class="content">
+            <h4>Jour 2 : Prototypage</h4>
+            <p>Développement MVP, Business Model & Mentoring.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">18 DÉC</div>
+          <div class="content">
+            <h4>Jour 3 : Pitch Final</h4>
+            <p>Training Pitch, Présentation Jury & Awards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+       <!-- Formulaire d'inscription -->
+    <section id="register" class="register-section">
+      <div class="container">
+        <div class="form-wrapper">
+          <h2>Rejoignez l'aventure</h2>
+          <p>Inscription pour les membres et participants.</p>
+          
+          <!-- Le name="google-sheet" est important pour le script -->
+                  <form id="signup-form" name="google-sheet">
+            
+            <!-- Ligne 1 : Nom Prénom & Email -->
+            <div class="input-group">
+              <input 
+                type="text" 
+                name="NomPrenom" 
+                id="NomPrenom" 
+                placeholder="Nom & Prénom" 
+                required 
+                autocomplete="name"> <!-- Ajouté ici -->
+                
+              <input 
+                type="email" 
+                name="Email" 
+                id="Email" 
+                placeholder="Email" 
+                required 
+                autocomplete="email"> <!-- Ajouté ici -->
+            </div>
+
+            <!-- Ligne 2 : Matricule & Département -->
+            <div class="input-group">
+              <input 
+                type="text" 
+                name="Matricule" 
+                id="Matricule" 
+                placeholder="Matricule" 
+                required 
+                autocomplete="off"> <!-- 'off' car c'est une donnée spécifique sans standard autofill -->
+              
+              <select name="Departement" id="Departement" required autocomplete="off">
+                <option value="" disabled selected>Choisir ton département</option>
+                <option value="Design">Design</option>
+                <option value="Relation Externe">Relation Externe (RE)</option>
+                <option value="IT">IT (Information Technology)</option>
+                <option value="CC">CC (Content Creator)</option>
+              </select>
+            </div>
+
+            <!-- Idée -->
+            <textarea 
+              name="Idee" 
+              id="Idee" 
+              rows="4" 
+              placeholder="As-tu une idée de projet à proposer ? (Optionnel - Explique brièvement)" 
+              autocomplete="off"></textarea>
+            
+            <button type="submit" id="submit-btn">Valider l'inscription</button>
+            <p id="msg"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Organisé par <strong>Project Initiative Club</strong> • Chef de projet : Alaa Eddine Korichi</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
