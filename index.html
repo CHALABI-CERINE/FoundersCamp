@@ -3,10 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The Founders Camp — Ideathon & Bootcamp</title>
+
   <link rel="stylesheet" href="style.css" />
-<link rel="icon" type="image/png" href="img/favicon.png">
+ 
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+   
+<link rel="icon" type="image/png" href="img/logo_white.png?v=2">
+ <title>The Founders Camp — Ideathon & Bootcamp</title>
+ 
 </head>
 <body>
 
@@ -92,62 +96,56 @@
 
   
        <!-- Formulaire d'inscription -->
-    <section id="register" class="register-section">
+       <section id="register" class="register-section">
       <div class="container">
         <div class="form-wrapper">
           <h2>Rejoignez l'aventure</h2>
-          <p>Inscription pour les membres et participants.</p>
+          <p>Remplissez ce formulaire pour valider votre participation.</p>
           
-          <!-- Le name="google-sheet" est important pour le script -->
-                  <form id="signup-form" name="google-sheet">
+          <form id="signup-form" name="google-sheet">
             
-            <!-- Ligne 1 : Nom Prénom & Email -->
+            <!-- Ligne 1 : Nom & Prénom -->
             <div class="input-group">
-              <input 
-                type="text" 
-                name="NomPrenom" 
-                id="NomPrenom" 
-                placeholder="Nom & Prénom" 
-                required 
-                autocomplete="name"> <!-- Ajouté ici -->
-                
-              <input 
-                type="email" 
-                name="Email" 
-                id="Email" 
-                placeholder="Email" 
-                required 
-                autocomplete="email"> <!-- Ajouté ici -->
+              <input type="text" name="Nom" placeholder="Nom" required autocomplete="family-name">
+              <input type="text" name="Prenom" placeholder="Prénom" required autocomplete="given-name">
             </div>
 
-            <!-- Ligne 2 : Matricule & Département -->
+            <!-- Ligne 2 : Email & Matricule -->
             <div class="input-group">
-              <input 
-                type="text" 
-                name="Matricule" 
-                id="Matricule" 
-                placeholder="Matricule" 
-                required 
-                autocomplete="off"> <!-- 'off' car c'est une donnée spécifique sans standard autofill -->
-              
-              <select name="Departement" id="Departement" required autocomplete="off">
-                <option value="" disabled selected>Choisir ton département</option>
-                <option value="Design">Design</option>
-                <option value="Relation Externe">Relation Externe (RE)</option>
-                <option value="IT">IT (Information Technology)</option>
+              <input type="email" name="Email" placeholder="Email" required autocomplete="email">
+              <input type="text" name="Matricule" placeholder="Matricule" required autocomplete="off">
+            </div>
+
+            <!-- Ligne 3 : Discord & Année d'adhésion -->
+            <div class="input-group">
+              <input type="text" name="DiscordID" placeholder="Discord ID (ex: user#1234)" required autocomplete="off">
+              <input type="text" name="AnneeAdhesion" placeholder="Année d'adhésion au club (ex: 2024)" required autocomplete="off">
+            </div>
+
+            <!-- Ligne 4 : Département & Disponibilité -->
+            <div class="input-group">
+              <!-- Département -->
+              <select name="Departement" required>
+                <option value="" disabled selected>Quel est votre département ?</option>
                 <option value="CC">CC (Content Creator)</option>
+                <option value="RH">RH (Ressources Humaines)</option>
+                <option value="RE">RE (Relations Externes)</option>
+                <option value="IT">IT (Information Technology)</option>
+                <option value="Design">Design</option>
+              </select>
+
+              <!-- Disponibilité -->
+              <select name="Disponibilite" required>
+                <option value="" disabled selected>Êtes-vous disponible les 16, 17 et 18 décembre 2025 ?</option>
+                <option value="Oui">Oui</option>
+                <option value="Non">Non</option>
               </select>
             </div>
 
-            <!-- Idée -->
-            <textarea 
-              name="Idee" 
-              id="Idee" 
-              rows="4" 
-              placeholder="As-tu une idée de projet à proposer ? (Optionnel - Explique brièvement)" 
-              autocomplete="off"></textarea>
+            <!-- Question (Optionnel) -->
+            <textarea name="Question" rows="3" placeholder="Avez-vous une question ? (Optionnel)"></textarea>
             
-            <button type="submit" id="submit-btn">Valider l'inscription</button>
+            <button type="submit" id="submit-btn">CONFIRMER L'INSCRIPTION</button>
             <p id="msg"></p>
           </form>
         </div>

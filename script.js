@@ -50,3 +50,21 @@ form.addEventListener('submit', e => {
       console.error('Error!', error.message);
     });
 });
+
+// --- SMART NAVBAR (Cache le menu quand on descend, montre quand on monte) ---
+let lastScrollTop = 0;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', function() {
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  if (scrollTop > lastScrollTop && scrollTop > 100) {
+    // Si on scrolle vers le BAS et qu'on n'est pas tout en haut : CACHER
+    navbar.classList.add('navbar-hidden');
+  } else {
+    // Si on scrolle vers le HAUT : MONTRER
+    navbar.classList.remove('navbar-hidden');
+  }
+  
+  lastScrollTop = scrollTop;
+});
