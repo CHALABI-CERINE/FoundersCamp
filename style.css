@@ -250,3 +250,36 @@ footer {
 .navbar-hidden {
   transform: translateY(-100%); /* Cache la barre vers le haut */
 }
+
+/* --- CORRECTION ALIGNEMENT COMPTE A REBOURS --- */
+
+/* Aligner les boîtes de temps (Jours, Heures...) horizontalement */
+.countdown { 
+  display: flex; 
+  flex-direction: row; /* Force l'horizontale */
+  justify-content: center; /* Centre au milieu */
+  gap: 20px; /* Espace entre les boîtes */
+  flex-wrap: wrap; /* Revient à la ligne si l'écran est trop petit */
+}
+
+/* Aligner le texte des participants (+30 inscrits) */
+.participants-badge {
+  display: flex;
+  align-items: center; /* Centre verticalement */
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.stats { 
+  display: flex; /* Utilise Flexbox au lieu de Grid */
+  flex-direction: row; /* Force l'alignement horizontal */
+  justify-content: center; /* Centre le tout */
+  gap: 30px; 
+  flex-wrap: wrap; /* Important pour le mobile */
+}
+
+.stat-card {
+  flex: 1; /* Chaque carte prend la même largeur */
+  min-width: 200px; /* Pas trop petit sur mobile */
+}
