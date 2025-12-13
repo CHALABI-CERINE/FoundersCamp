@@ -97,61 +97,66 @@
 
   
        <!-- Formulaire d'inscription -->
-       <section id="register" class="register-section">
-      <div class="container">
+     <section id="register" class="register-section">
+    <div class="container">
         <div class="form-wrapper">
-          <h2>Rejoignez l'aventure</h2>
-          <p>Remplissez ce formulaire pour valider votre participation.</p>
-          
-          <form id="signup-form" name="google-sheet">
-            
-            <!-- Ligne 1 : Nom & Prénom -->
-            <div class="input-group">
-              <input type="text" name="Nom" placeholder="Nom" required autocomplete="family-name">
-              <input type="text" name="Prenom" placeholder="Prénom" required autocomplete="given-name">
-            </div>
+            <h2>Rejoignez l'aventure</h2>
+            <p>Remplissez ce formulaire pour valider votre participation.</p>
 
-            <!-- Ligne 2 : Email & Matricule -->
-            <div class="input-group">
-              <input type="email" name="Email" placeholder="Email" required autocomplete="email">
-              <input type="text" name="Matricule" placeholder="Matricule" required autocomplete="off">
-            </div>
+            <form id="signup-form" name="google-sheet">
 
-            <!-- Ligne 3 : Discord & Année d'adhésion -->
-            <div class="input-group">
-              <input type="text" name="DiscordID" placeholder="Discord ID (ex: user#1234)" required autocomplete="off">
-              <input type="text" name="AnneeAdhesion" placeholder="Année d'adhésion au club (ex: 2024)" required autocomplete="off">
-            </div>
+                <div class="input-group">
+                    <input type="text" name="Nom" placeholder="Nom" required autocomplete="family-name">
+                    <input type="text" name="Prenom" placeholder="Prénom" required autocomplete="given-name">
+                </div>
 
-            <!-- Ligne 4 : Département & Disponibilité -->
-            <div class="input-group">
-              <!-- Département -->
-              <select name="Departement" required>
-                <option value="" disabled selected>Quel est votre département ?</option>
-                <option value="CC">CC (Content Creator)</option>
-                <option value="RH">RH (Ressources Humaines)</option>
-                <option value="RE">RE (Relations Externes)</option>
-                <option value="IT">IT (Information Technology)</option>
-                <option value="Design">Design</option>
-              </select>
+                <div class="input-group">
+                    <input type="email" name="Email" placeholder="Email" required autocomplete="email">
+                    <input type="text" name="Matricule" placeholder="Matricule" required autocomplete="off">
+                </div>
 
-              <!-- Disponibilité -->
-              <select name="Disponibilite" required>
-                <option value="" disabled selected>Êtes-vous disponible les 16, 17 et 18 décembre 2025 ?</option>
-                <option value="Oui">Oui</option>
-                <option value="Non">Non</option>
-              </select>
-            </div>
+                <div class="input-group">
+                    <input type="text" name="DiscordID" placeholder="Discord ID (ex: user#1234)" required autocomplete="off">
+                    <input type="text" name="AnneeAdhesion" placeholder="Année d'adhésion au club (ex: 2024)" required autocomplete="off">
+                </div>
 
-            <!-- Question (Optionnel) -->
-            <textarea name="Question" rows="3" placeholder="Avez-vous une question ? (Optionnel)"></textarea>
-            
-            <button type="submit" id="submit-btn">CONFIRMER L'INSCRIPTION</button>
-            <p id="msg"></p>
-          </form>
+                <div class="input-group">
+                    <select name="Departement" required>
+                        <option value="" disabled selected>Quel est votre département ?</option>
+                        <option value="CC">CC (Content Creator)</option>
+                        <option value="RH">RH (Ressources Humaines)</option>
+                        <option value="RE">RE (Relations Externes)</option>
+                        <option value="IT">IT (Information Technology)</option>
+                        <option value="Design">Design</option>
+                    </select>
+
+                    <select name="Disponibilite" required>
+                        <option value="" disabled selected>Êtes-vous disponible les 16, 17 et 18 décembre 2025 ?</option>
+                        <option value="Oui">Oui</option>
+                        <option value="Non">Non</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <select name="AvezVousEquipe" id="equipe-select" required>
+                        <option value="" disabled selected>Avez-vous déjà une équipe ?</option>
+                        <option value="Oui">Oui</option>
+                        <option value="Non">Non</option>
+                    </select>
+                </div>
+                
+                <div class="input-group" id="chef-equipe-group" style="display: none;">
+                    <input type="text" name="NomEquipe" id="nom-chef-equipe" placeholder="Nom de votre équipe" autocomplete="family-name">
+                </div>
+
+                <textarea name="Question" rows="3" placeholder="Avez-vous une question ? (Optionnel)"></textarea>
+
+                <button type="submit" id="submit-btn">CONFIRMER L'INSCRIPTION</button>
+                <p id="msg"></p>
+            </form>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
   </main>
 
   <footer>
@@ -168,3 +173,24 @@
   <script src="script.js"></script>
 </body>
 </html>
+<script>
+    const equipeSelect = document.getElementById('equipe-select');
+    const chefEquipeGroup = document.getElementById('chef-equipe-group');
+    const nomEquipe = document.getElementById('nom-chef-equipe');
+
+    equipeSelect.addEventListener('change', function() {
+        if (this.value === 'Oui') {
+            // Afficher le champ et le rendre requis
+            chefEquipeGroup.style.display = 'flex'; // ou 'block', selon votre CSS
+            nomEquipe.required = false;
+        } else {
+            // Cacher le champ et le rendre non requis
+            chefEquipeGroup.style.display = 'none';
+            nomEquipe.required = false;
+           
+            // Optionnel : Effacer les valeurs si l'utilisateur change d'avis
+            nomChefEquipe.value = '';
+            prenomChefEquipe.value = '';
+        }
+    });
+</script>

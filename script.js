@@ -24,7 +24,7 @@ const timer = setInterval(function() {
 
 // --- GESTION DU FORMULAIRE VERS GOOGLE SHEET ---
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzULulGhYoi6VJj6QG8o9QjI0Gfw4qW1y5rzcuy1ubFGsuaR3LZ2Xu0wcnbgZHeDjtQyQ/exec'; 
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwONQq2WP80RkZSEwkmloyrmkcxefeha-B2zRHt9vy8ch4gNy8X7mF5PVWc_GUk_eOICw/exec'; 
 
 const form = document.forms['google-sheet'];
 const msg = document.getElementById("msg");
